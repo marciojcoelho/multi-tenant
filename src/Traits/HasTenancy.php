@@ -1,6 +1,6 @@
 <?php
 
-namespace Kwalit\MultiTenant\Traits;
+namespace Mjc\MultiTenant\Traits;
 
 trait HasTenancy
 {

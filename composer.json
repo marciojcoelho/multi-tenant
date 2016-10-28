@@ -5,12 +5,12 @@
     "keywords": ["laravel", "multisite", "domains"],
     "authors": [
         {
-            "name": "Jason Koolman",
-            "email": "jason.koolman@hotmail.com"
-        },
-        {
             "name": "Márcio Coelho",
             "email": "marcio.coelho@tekzenit.com"
+        },
+        {
+            "name": "Jason Koolman",
+            "email": "jason.koolman@hotmail.com"
         }
     ],
     "require": {

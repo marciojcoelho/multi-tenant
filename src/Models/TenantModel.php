@@ -1,6 +1,6 @@
 <?php
 
-namespace Kwalit\MultiTenant\Models;
+namespace Mjc\MultiTenant\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

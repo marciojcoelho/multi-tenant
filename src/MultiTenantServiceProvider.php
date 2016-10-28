@@ -1,6 +1,6 @@
 <?php
 
-namespace Kwalit\MultiTenant;
+namespace Mjc\MultiTenant;
 
 use Cache;
 use Route;

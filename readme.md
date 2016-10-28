@@ -2,7 +2,7 @@
 A simple and lightweight package to craft multi-tenant applications with Laravel.
 
 #### Installation
-This package relies on composer as dependency manger. Run the `composer require marcio/multi-tenant` to install this package. Next add the service provider within `config/app.php`: `Kwalit\MultiTenant\MultiTenantServiceProvider::class` in order to be bootstrapped.
+This package relies on composer as dependency manger. Run the `composer require marciojcoelho/multi-tenant` to install this package. Next add the service provider within `config/app.php`: `Mjc\MultiTenant\MultiTenantServiceProvider::class` in order to be bootstrapped.
 
 #### Defining tenants
 Tenants are defined in `config/tenant.php`. Make sure to run the `php artisan vendor:publish` command to have this file created. By default, the tenant directories are located at `storage/tenants/{tenantID}`. If you want to use a different base path, override the `path` array key.
