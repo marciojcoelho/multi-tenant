@@ -69,7 +69,7 @@ if ( ! function_exists('ttrans')) {
 
     function ttrans($id = null, $parameters = [], $domain = 'messages', $locale = null)
     {
-        if (isset(app()->getInstance()['translation.domain'])) {
+        if (null !== func(app()->getInstance()['translation.domain'])) {
 
             if (is_null($id)) {
                 return app('translation.domain');
