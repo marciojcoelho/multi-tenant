@@ -69,7 +69,7 @@ if ( ! function_exists('ttrans')) {
 
     function ttrans($id = null, $parameters = [], $domain = 'messages', $locale = null)
     {
-        if (null !== func(app()->getInstance()['translation.domain'])) {
+        if (array_key_exists('translation.domain', app()->getInstance()->getBindings())) {
 
             if (is_null($id)) {
                 return app('translation.domain');
