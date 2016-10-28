@@ -6,6 +6,8 @@ use Cache;
 use Route;
 use Request;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Translation\Translator;
+use Illuminate\Translation\FileLoader;
 
 class MultiTenantServiceProvider extends ServiceProvider
 {
@@ -32,7 +34,7 @@ class MultiTenantServiceProvider extends ServiceProvider
             // Load languages from the current tenant directory
             if(file_exists($directory . '/lang')) {
                 $this->app->singleton('translation.domain', function ($app) use ($directory){
-                    $fileLoader = new \Illuminate\Translation\FileLoader($app['files'], realpath($directory . '/lang'));
+                    $fileLoader = new FileLoader($app['files'], realpath($directory . '/lang'));
 
                     return new Translator($fileLoader , $this->app->getLocale());
                 });
