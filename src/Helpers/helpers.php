@@ -64,3 +64,24 @@ if ( ! function_exists('tasset')) {
         return asset($path, $secure);
     }
 }
+
+if ( ! function_exists('ttrans')) {
+
+    function ttrans($id = null, $parameters = [], $domain = 'messages', $locale = null)
+    {
+        if (app('translation.domain')) {
+
+            if (is_null($id)) {
+                return app('translation.domain');
+            }
+
+            return app('translation.domain')->trans($id, $parameters, $domain, $locale);
+        }
+
+        if (is_null($id)) {
+            return app('translator');
+        }
+
+        app('translator')->trans($id, $parameters, $domain, $locale);
+    }
+}

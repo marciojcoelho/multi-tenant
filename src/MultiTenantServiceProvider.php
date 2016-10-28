@@ -27,7 +27,16 @@ class MultiTenantServiceProvider extends ServiceProvider
             $directory = tenant_path($tenant);
 
             // Load views from the current tenant directory
-            $this->app['view']->addLocation(realpath($directory . '/views'));
+            $this->app['view']->getFinder()->prependLocation(realpath($directory . '/views'));
+
+            // Load languages from the current tenant directory
+            if(file_exists($directory . '/lang')) {
+                $this->app->singleton('translation.domain', function ($app) use ($directory){
+                    $fileLoader = new \Illuminate\Translation\FileLoader($app['files'], realpath($directory . '/lang'));
+
+                    return new Translator($fileLoader , $this->app->getLocale());
+                });
+            }
 
             // Load the tenant routes within the application controller namespace.
             if(file_exists($directory . '/routes.php')) {
@@ -41,6 +50,7 @@ class MultiTenantServiceProvider extends ServiceProvider
         }
 
         // Load base views, these will be overridden by tenant views with the same name
+
         $this->app['view']->addLocation(realpath(base_path('resources/views')));
 
         // Publish the tenant config, which will be overriden by local configuration
