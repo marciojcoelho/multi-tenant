@@ -1,11 +1,16 @@
 {
-    "name": "kwalit/multi-tenant",
+    "name": "marciojcoelho/multi-tenant",
     "description": "A simple and lightweight package to craft multi-tenant applications with Laravel.",
     "license": "MIT",
+    "keywords": ["laravel", "multisite", "domains"],
     "authors": [
         {
             "name": "Jason Koolman",
             "email": "jason.koolman@hotmail.com"
+        },
+        {
+            "name": "Márcio Coelho",
+            "email": "marcio.coelho@tekzenit.com"
         }
     ],
     "require": {
@@ -13,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Kwalit\\MultiTenant\\": "src/"
+            "marciojcoelho\\MultiTenant\\": "src/"
         }
     },
     "minimum-stability": "dev"

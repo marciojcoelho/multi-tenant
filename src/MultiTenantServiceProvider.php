@@ -51,7 +51,10 @@ class MultiTenantServiceProvider extends ServiceProvider
 
         // Load base views, these will be overridden by tenant views with the same name
 
-        $this->app['view']->addLocation(realpath(base_path('resources/views')));
+        $paths = $this->app['view']->getFinder()->getPaths();
+        if (!in_array(realpath(base_path('resources/views')), $paths)) {
+            $this->app['view']->addLocation(realpath(base_path('resources/views')));
+        }
 
         // Publish the tenant config, which will be overriden by local configuration
         $this->publishes([
