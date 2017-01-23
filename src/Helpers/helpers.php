@@ -85,3 +85,14 @@ if ( ! function_exists('ttrans')) {
         return app('translator')->trans($id, $parameters, $domain, $locale);
     }
 }
+
+if ( ! function_exists('ttrans_choice')) {
+    function trans_choice($id, $number, array $parameters = [], $domain = 'messages', $locale = null)
+    {
+        if (array_key_exists('translation.domain', app()->getInstance()->getBindings())) {
+          return app('translation.domain')->transChoice($id, $number, $parameters, $domain, $locale);
+        }
+
+        return app('translator')->transChoice($id, $number, $parameters, $domain, $locale);
+    }
+}
