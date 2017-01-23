@@ -87,7 +87,7 @@ if ( ! function_exists('ttrans')) {
 }
 
 if ( ! function_exists('ttrans_choice')) {
-    function trans_choice($id, $number, array $parameters = [], $domain = 'messages', $locale = null)
+    function ttrans_choice($id, $number, array $parameters = [], $domain = 'messages', $locale = null)
     {
         if (array_key_exists('translation.domain', app()->getInstance()->getBindings())) {
           return app('translation.domain')->transChoice($id, $number, $parameters, $domain, $locale);
