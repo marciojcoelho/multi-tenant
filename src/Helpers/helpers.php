@@ -16,11 +16,15 @@ if ( ! function_exists('tenant')) {
             $tenant = app('Tenant');
         }
 
-        if (isset($tenant[$key])) {
-            return $key ? $tenant[$key] : $tenant;
+        if ($key) {
+          if (isset($tenant[$key])) {
+              return $tenant[$key];
+          } else {
+            return null;
+          }
         }
 
-        return null;
+        return $tenant;
     }
 
 }
